@@ -1,0 +1,12 @@
+.search-row{
+    height: 150px;
+    background-position: center;
+}
+
+.search{
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 25px;
+    padding-left: 1%; 
+}

@@ -19,7 +19,7 @@ class App extends Component {
     }).then(response => {
       if (response.ok) {
         response.json().then(json => {
-          console.log(json.results[1].name);
+          console.log(json);
           this.setState({
             pokemonList: json.results
           });

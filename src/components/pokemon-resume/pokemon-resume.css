@@ -1,0 +1,26 @@
+.sprites {
+    height: 80px;
+}
+
+.poke-block {
+    background-color: #fff;
+    margin: 1% 10%;
+    padding: 1%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    text-align: left;
+}
+
+.poke-name {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1% 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.poke-name:hover {
+    filter: brightness(120%) saturate(180%);
+    box-shadow: inset 2px 5px 20px -5px rgba(0, 0, 0, 0.75);
+}

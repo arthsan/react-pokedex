@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../search/search.css'
 
 class Search extends Component {
   constructor(props) {
@@ -19,8 +20,8 @@ class Search extends Component {
   render() {
     return (
       <div className="search-row">
-        <div className="image-back"></div>
-        <h6>Search for Pokemon</h6>
+        <div></div>
+        <h2>Search for Pokemon</h2>
         <div className="search-container search-tag">        
           <input className="search" type="text" name="name" value={this.state.model} onChange={(e)=> this.handlerChange(e)}></input>
         </div>
