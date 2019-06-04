@@ -1,9 +1,9 @@
 .sprites {
-    height: 80px;
+    height: 120px;
 }
 
 .poke-block {
-    background-color: #fff;
+    background-color: #F5F9FC;
     margin: 1% 10%;
     padding: 1%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -13,9 +13,9 @@
 
 .poke-name {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    margin: 1% 5%;
+    margin: 3% 5%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }

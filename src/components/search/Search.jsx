@@ -5,7 +5,7 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',   
+      name: '', 
     }
     this.handlerChange = this.handlerChange.bind(this);  
   }
@@ -13,7 +13,8 @@ class Search extends Component {
   handlerChange(event) {
     let { name, value } = event.target;    
     this.setState({[name]: value}, () =>{
-      this.props.pokemons.results(this.state.name)    
+      console.log(this.state.name)
+      this.props.search(this.state)
     })
   }
   
@@ -23,7 +24,7 @@ class Search extends Component {
         <div></div>
         <h2>Search for Pokemon</h2>
         <div className="search-container search-tag">        
-          <input className="search" type="text" name="name" value={this.state.model} onChange={(e)=> this.handlerChange(e)}></input>
+          <input className="search" type="text" name="name" value={this.state.name} onChange={(e)=> this.handlerChange(e)}></input>
         </div>
       </div>
     )  
