@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import '../pokemon-resume/pokemon-resume.css'
-import {Link} from 'react-router-dom'
 
 class PokemonResume extends Component {
   constructor(props) {
@@ -18,13 +17,11 @@ class PokemonResume extends Component {
         {
           this.props.pokemons.map((element, idx) => {
             return (
-            <Link to={{pathname:`/${element.name}`, state: {element}}} onClick={this.clickPok} pokeInfo={this.props} >
               <div className='poke-name' key={idx}>
-                <img className='sprites' src={`https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${element.name}.png`} alt={`${element.name}`} />
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${idx+1}.png`} alt={`${element.name}`} />
                 
                 <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
               </div>
-            </Link>
             )
           })
         }

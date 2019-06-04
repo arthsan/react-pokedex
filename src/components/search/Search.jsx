@@ -13,7 +13,6 @@ class Search extends Component {
   handlerChange(event) {
     let { name, value } = event.target;    
     this.setState({[name]: value}, () =>{
-      console.log(this.state.name)
       this.props.search(this.state)
     })
   }
@@ -23,7 +22,7 @@ class Search extends Component {
       <div className="search-row">
         <div></div>
         <h2>Search for Pokemon</h2>
-        <div className="search-container search-tag">        
+        <div>        
           <input className="search" type="text" name="name" value={this.state.name} onChange={(e)=> this.handlerChange(e)}></input>
         </div>
       </div>

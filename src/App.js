@@ -2,31 +2,26 @@ import React, {Component} from 'react';
 import './App.css';
 import Search from './components/search/Search';
 import PokemonResume from './components/pokemon-resume/PokemonResume';
-import { Link, Switch, Route } from 'react-router-dom';
-import PokemonDetail from './components/pokemon-detail/PokemonDetail'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       pokemonList: [],
-      pokeInfo: null
+      pokeFiltered: []
     }
     this.seachPokemonHandler = this.seachPokemonHandler.bind(this);
   }
   
   getallPokemon() {
-    fetch("https://pokeapi.co/api/v2/pokemon/?limit=964", {
-      method: "GET"
-    }).then(response => {
-      if (response.ok) {
-        response.json().then(json => {
-          console.log(json);
-          this.setState({
-            pokemonList: json.results
-          });
-        });
-      }
+    axios.get('https://pokeapi.co/api/v2/pokemon/?limit=807')
+    .then(response => {
+      this.setState({
+        pokemonList: response.data.results,
+        pokeFiltered: response.data.results
+      });
     });
   }
 
@@ -35,33 +30,17 @@ class App extends Component {
   }
 
   seachPokemonHandler(name) {
-    console.log(name)
-    this.getPokemon()
-    .then(res => {
-      if (name.length === 0) {
-        this.setState({pokemonList: [],});
-      } else {
-        const pokeFilter = res.filter((e) => e.name.toLowerCase().includes(name.toLowerCase()))
-        this.setState({ pokemonList: pokeFilter })
-      }
-    })
-    .catch(error => console.log(error))
+    const newList = [...this.state.pokemonList];
+    const pokeFilter = newList.filter((e) => e.name.toLowerCase().includes(name.name.toLowerCase()));
+    this.setState({ pokeFiltered: pokeFilter });
   }
-
-  setPokeInfo = (pokeInfo) => {
-    this.setState({ 
-      pokeInfo: pokeInfo })
-  } 
 
   render() {
       return (
         <div className="App">
           <Link to='/'><div className='navbar'><img src='https://cdn.bulbagarden.net/upload/archive/4/4b/20100413180610%21Pok%C3%A9dex_logo.png' alt='pokedex'></img> </div></Link>
           <Search search={this.seachPokemonHandler} pokemons={this.state.pokemonList}/>
-          <Switch>
-            <Route exact path='/' render={() => <PokemonResume pokemons={this.state.pokemonList} setPokeInfo={this.setPokeInfo}/>}/>
-            <Route path='/:name' render={() => <PokemonDetail pokeInfo={this.state.pokeInfo}/>}/>
-          </Switch>
+          <PokemonResume pokemons={this.state.pokeFiltered}/>
           <div className='navbar'><img src='https://cdn.bulbagarden.net/upload/archive/4/4b/20100413180610%21Pok%C3%A9dex_logo.png' alt='pokedex'></img></div>
         </div>
       );
