@@ -16,13 +16,40 @@ class PokemonResume extends Component {
       <div className='poke-block'>
         {
           this.props.pokemons.map((element, idx) => {
-            return (
-              <div className='poke-name' key={idx}>
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${idx+1}.png`} alt={`${element.name}`} />
-                
-                <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
-              </div>
-            )
+            if(idx < 721) {
+              return (
+                <div className='poke-name' key={idx}>
+                  <img className='sprites' src={`https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${element.name}.png`} alt={`${element.name}`} />
+                  
+                  <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
+                </div>
+              )
+            } else if(idx === 773) {
+                return (
+                  <div className='poke-name' key={idx}>
+                    <img className='sprites' src={`https://img.pokemondb.net/sprites/sun-moon/normal/minior-meteor.png`} alt={`${element.name}`} />
+                    
+                    <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
+                  </div>
+                )
+            } else if(idx === 777) {
+              return (
+                <div className='poke-name' key={idx}>
+                  <img className='sprites' src={`https://img.pokemondb.net/sprites/sun-moon/normal/mimikyu.png`} alt={`${element.name}`} />
+                  
+                  <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
+                </div>
+              )
+          }
+            else {
+              return (
+                <div className='poke-name' key={idx}>
+                  <img className='sprites' src={`https://img.pokemondb.net/sprites/ultra-sun-ultra-moon/normal/${element.name}.png`} alt={`${element.name}`} />
+                  
+                  <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
+                </div>
+              )
+            }
           })
         }
       </div>

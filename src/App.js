@@ -40,6 +40,7 @@ class App extends Component {
         <div className="App">
           <Link to='/'><div className='navbar'><img src='https://cdn.bulbagarden.net/upload/archive/4/4b/20100413180610%21Pok%C3%A9dex_logo.png' alt='pokedex'></img> </div></Link>
           <Search search={this.seachPokemonHandler} pokemons={this.state.pokemonList}/>
+
           <PokemonResume pokemons={this.state.pokeFiltered}/>
           <div className='navbar'><img src='https://cdn.bulbagarden.net/upload/archive/4/4b/20100413180610%21Pok%C3%A9dex_logo.png' alt='pokedex'></img></div>
         </div>
