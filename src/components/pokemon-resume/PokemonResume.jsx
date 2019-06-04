@@ -16,42 +16,30 @@ class PokemonResume extends Component {
       <div className='poke-block'>
         {
           this.props.pokemons.map((element, idx) => {
-            if(idx < 721) {
-              return (
-                <div className='poke-name' key={idx}>
-                  <img className='sprites' src={`https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/${element.name}.png`} alt={`${element.name}`} />
-                  
-                  <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
-                </div>
-              )
-            } else if(idx === 773) {
+            if(element.name === 'minior-red-meteor') {
                 return (
                   <div className='poke-name' key={idx}>
-                    <img className='sprites' src={`https://img.pokemondb.net/sprites/sun-moon/normal/minior-meteor.png`} alt={`${element.name}`} />
-                    
+                    <img className='sprites' src={`https://img.pokemondb.net/sprites/sun-moon/icon/minior-meteor.png`} alt={`${element.name}`} />
                     <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
                   </div>
                 )
-            } else if(idx === 777) {
+            } else if(element.name === 'mimikyu-disguised') {
               return (
                 <div className='poke-name' key={idx}>
-                  <img className='sprites' src={`https://img.pokemondb.net/sprites/sun-moon/normal/mimikyu.png`} alt={`${element.name}`} />
+                  <img className='sprites' src={`https://img.pokemondb.net/sprites/sun-moon/icon/mimikyu.png`} alt={`${element.name}`} />
                   
                   <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
                 </div>
               )
+          } else {
+            return (
+              <div className='poke-name' key={idx}>
+                <img className='sprites' src={`https://img.pokemondb.net/sprites/sun-moon/icon/${element.name}.png`} alt={`${element.name}`} />
+                <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
+              </div>
+            )
           }
-            else {
-              return (
-                <div className='poke-name' key={idx}>
-                  <img className='sprites' src={`https://img.pokemondb.net/sprites/ultra-sun-ultra-moon/normal/${element.name}.png`} alt={`${element.name}`} />
-                  
-                  <div>{element.name[0].toUpperCase()+element.name.slice(1)}<div>Index: {idx+1}</div></div>
-                </div>
-              )
-            }
-          })
-        }
+        })}
       </div>
     )
   }
